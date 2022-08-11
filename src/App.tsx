@@ -66,7 +66,7 @@ function App() {
 
     return (
     <div className="App">
-      <button autoFocus={true} onKeyDown={(e:React.KeyboardEvent) => handlePress(e.code)} onKeyUp={()=>setPressed(false)}>Press Spacebar</button>
+      <button autoFocus={true} onKeyDown={(e) => handlePress(e.code)} onKeyUp={()=>setPressed(false)}>Press Spacebar</button>
         <p>Morse Code: {morse}</p>
         <p>Decode Text: {text}</p>
         <p>Wrong Codes: {errors.map(error => (
