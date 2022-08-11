@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, { useEffect, useRef, useState} from 'react';
 import './App.css';
 import { MorseLetter } from "./utils/const";
 
@@ -12,7 +12,7 @@ function App() {
     const [key, setKey] = useState<string>('');
     const longPress = useRef(false);
 
-    const decodeMorse = useCallback(() => {
+    const decodeMorse = () => {
         const morseCode = morse.split(' ');
         setText('');
         setErrors([]);
@@ -25,7 +25,7 @@ function App() {
                 }
             }
         });
-    }, [morse]);
+    };
 
     const codingMorse = (code:string) => {
         setMorse(prevState => prevState + code);
@@ -62,7 +62,7 @@ function App() {
             decodeMorse();
             setDecode(false);
         }
-    }, [decode, decodeMorse]);
+    }, [decode]);
 
     return (
     <div className="App">
