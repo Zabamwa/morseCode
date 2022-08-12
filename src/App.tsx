@@ -27,11 +27,6 @@ function App() {
         });
     };
 
-    const codingMorse = (code:string) => {
-        setMorse(prevState => prevState + code);
-        longPress.current = true;
-    };
-
     const handlePress = (key: string) => {
         setKey(key);
         setPressed(true);
@@ -41,9 +36,15 @@ function App() {
             let time: ReturnType<typeof setTimeout>;
             let letterSpace: ReturnType<typeof setTimeout>;
             if (pressed) {
-                time = setTimeout(() => codingMorse('-'), 1000);
+                time = setTimeout(() => {
+                    setMorse(prevState => prevState + '-');
+                    longPress.current = true;
+                }, 1000);
+
             } else {
-                letterSpace = setTimeout(() => codingMorse(' '), 1000);
+                letterSpace = setTimeout(() => {
+                    setMorse(prevState => prevState + ' ');
+                }, 1000);
             }
             return () => {
                 if (pressed && !longPress.current) {
